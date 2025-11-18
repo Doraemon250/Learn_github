@@ -4,9 +4,9 @@
 
 bool TextDropTarget::OnDropText(wxCoord x, wxCoord y, const wxString& text)
 {
-    if (text == "����")
+    if (text == "ÓëÃÅ")
     {
-        m_canvas->AddGate(x, y, ANDGATE, "����");
+        m_canvas->AddGate(x, y, ANDGATE, "ÓëÃÅ");
         return true;
     }
     return false;
@@ -142,7 +142,7 @@ void DrawBoard::OnLeftDown(wxMouseEvent& event) {
     switch (m_currentTool) {
     case TOOL_TEXT: {
         m_wireStartPos = event.GetPosition();
-        TextInputDialog dialog(this, wxID_ANY, "Input Text");
+        TextInputDialog dialog(this, wxID_ANY, "Ìí¼Ó±êÇ©");
 
         if (dialog.ShowModal() == wxID_OK) {
             wxString userInput = dialog.GetText();

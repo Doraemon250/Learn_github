@@ -62,6 +62,7 @@ public:
 	wxPoint GetCenter() { return m_center; }
 	void SetCenter(wxPoint center) { m_center = center; UpdateGeometry(); }
 	void SetSelected(bool selected) { m_isSelected = selected; }
+	bool GetSelected() { return m_isSelected; }
 	virtual void UpdateGeometry() = 0;
 	virtual void drawSelf(wxMemoryDC& memDC) = 0;
 	virtual bool Isinside(const wxPoint& point) const = 0;
