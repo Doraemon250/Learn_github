@@ -18,107 +18,107 @@ enum {
 	ID_zoomin=005,
 	ID_zoomout=006
             };
-cMain::cMain() : wxFrame(nullptr,wxID_ANY,"µçÂ·±à¼­Æ÷",wxPoint(30,30),wxSize(800,600))
+cMain::cMain() : wxFrame(nullptr,wxID_ANY,"ç”µè·¯ç¼–è¾‘å™¨",wxPoint(30,30),wxSize(800,600))
 {
 
 	wxInitAllImageHandlers();
 
-	wxBoxSizer* cMainSizer = new wxBoxSizer(wxVERTICAL);//cMain²¼¾Ö
+	wxBoxSizer* cMainSizer = new wxBoxSizer(wxVERTICAL);//cMainå¸ƒå±€
 	SetSizer(cMainSizer);
 
-	//Ö÷²Ëµ¥À¸
+	//ä¸»èœå•æ 
 	wxMenuBar* menuBar = new wxMenuBar;
-	//ÎÄ¼þ²Ëµ¥
+	//æ–‡ä»¶èœå•
 	wxMenu* fileMenu = new wxMenu;
-	fileMenu->Append(wxID_NEW, "&ÐÂ½¨\tCtrl+N");
-	fileMenu->Append(wxID_OPEN, "&´ò¿ª...\tCtrl+M");
-	fileMenu->Append(wxID_CLEAR, "&Çå³ý\tC");
+	fileMenu->Append(wxID_NEW, "&æ–°å»º\tCtrl+N");
+	fileMenu->Append(wxID_OPEN, "&æ‰“å¼€...\tCtrl+M");
+	fileMenu->Append(wxID_CLEAR, "&æ¸…é™¤\tC");
 
 	fileMenu->AppendSeparator();
-	fileMenu->Append(wxID_CLOSE, "&¹Ø±Õ\tCtrl+Shift+W");
-	fileMenu->Append(wxID_SAVE, "&±£´æ\tCtrl+S");
-	fileMenu->Append(wxID_SAVEAS, "&Áí´æÎª...\tCtrl+Shift+S");
-	fileMenu->Append(wxID_NEW, "&µ¼³öÏîÄ¿\tCtrl+Shift+E");
+	fileMenu->Append(wxID_CLOSE, "&å…³é—­\tCtrl+Shift+W");
+	fileMenu->Append(wxID_SAVE, "&ä¿å­˜\tCtrl+S");
+	fileMenu->Append(wxID_SAVEAS, "&å¦å­˜ä¸º...\tCtrl+Shift+S");
+	fileMenu->Append(wxID_NEW, "&å¯¼å‡ºé¡¹ç›®\tCtrl+Shift+E");
 	fileMenu->AppendSeparator();
-	fileMenu->Append(wxID_EXIT, "&ÍË³ö\tCtrl+Q");
-	menuBar->Append(fileMenu, "&ÎÄ¼þ");
-	//±à¼­²Ëµ¥
+	fileMenu->Append(wxID_EXIT, "&é€€å‡º\tCtrl+Q");
+	menuBar->Append(fileMenu, "&æ–‡ä»¶");
+	//ç¼–è¾‘èœå•
 	wxMenu* editMenu = new wxMenu;
 
-	menuBar->Append(editMenu, "&±à¼­");
-	//ÏîÄ¿²Ëµ¥
+	menuBar->Append(editMenu, "&ç¼–è¾‘");
+	//é¡¹ç›®èœå•
 	wxMenu* projectMenu = new wxMenu;
 
-	menuBar->Append(projectMenu, "&ÏîÄ¿");
-	//Ä£Äâ²Ëµ¥
+	menuBar->Append(projectMenu, "&é¡¹ç›®");
+	//æ¨¡æ‹Ÿèœå•
 	wxMenu* simulateMenu = new wxMenu;
 
-	menuBar->Append(simulateMenu, "&Ä£Äâ");
-	//´°¿Ú²Ëµ¥
+	menuBar->Append(simulateMenu, "&æ¨¡æ‹Ÿ");
+	//çª—å£èœå•
 	wxMenu* windowMenu = new wxMenu;
 
-	menuBar->Append(windowMenu, "&´°¿Ú");
-	//°ïÖú²Ëµ¥
+	menuBar->Append(windowMenu, "&çª—å£");
+	//å¸®åŠ©èœå•
 	wxMenu* helpMenu = new wxMenu;
 
-	menuBar->Append(helpMenu, "&°ïÖú");
+	menuBar->Append(helpMenu, "&å¸®åŠ©");
 
 	SetMenuBar(menuBar);
 
-	//Ö÷Ãæ°å
+	//ä¸»é¢æ¿
 	wxPanel* m_mainPnl = new wxPanel(this, wxID_ANY);
-	wxBoxSizer* m_mainPnlSizer = new wxBoxSizer(wxVERTICAL);//m_mainPnl²¼¾Ö
+	wxBoxSizer* m_mainPnlSizer = new wxBoxSizer(wxVERTICAL);//m_mainPnlå¸ƒå±€
 	m_mainPnl->SetSizer(m_mainPnlSizer);
 	cMainSizer->Add(m_mainPnl, 1, wxEXPAND | wxALL, 0);
 
-	//×óÓÒ·Ö¸îÈÝÆ÷
+	//å·¦å³åˆ†å‰²å®¹å™¨
 	wxSplitterWindow* splitter1 = new wxSplitterWindow(m_mainPnl, wxID_ANY, wxDefaultPosition, wxDefaultSize,wxSP_LIVE_UPDATE| wxSP_BORDER);//
 	m_mainPnlSizer->Add(splitter1, 1, wxEXPAND | wxALL, 0);
 	splitter1->SetDoubleBuffered(true);
 	
 
-	//×óÃæ°å
+	//å·¦é¢æ¿
 	
 	wxPanel* m_leftPanel = new wxPanel(splitter1,wxID_ANY);
-	wxBoxSizer* m_leftPanelSizer = new wxBoxSizer(wxVERTICAL);//m_leftPanel²¼¾Ö
+	wxBoxSizer* m_leftPanelSizer = new wxBoxSizer(wxVERTICAL);//m_leftPanelå¸ƒå±€
 	m_leftPanel ->SetSizer(m_leftPanelSizer);
-	//ÉÏÏÂ·Ö¸îÆ÷
+	//ä¸Šä¸‹åˆ†å‰²å™¨
 	wxSplitterWindow* splitter2 = new wxSplitterWindow(m_leftPanel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxSP_LIVE_UPDATE| wxSP_BORDER);//
 	m_leftPanelSizer->Add(splitter2, 1, wxEXPAND | wxALL, 0);
 	splitter2->SetDoubleBuffered(true);
 
-	    //ÉÏÃæµÄnotebook
+	    //ä¸Šé¢çš„notebook
 	wxPanel* m_upPanel = new wxPanel(splitter2, wxID_ANY);
-	wxBoxSizer* m_upPanelSizer = new wxBoxSizer(wxVERTICAL);//m_upPanel²¼¾Ö
+	wxBoxSizer* m_upPanelSizer = new wxBoxSizer(wxVERTICAL);//m_upPanelå¸ƒå±€
 	m_upPanel->SetSizer(m_upPanelSizer);
 	wxNotebook* m_upNotebook = new wxNotebook(m_upPanel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNB_TOP);//
 	m_upPanelSizer->Add(m_upNotebook, 1, wxEXPAND | wxALL, 0);
 	wxPanel* m_panel1 = new wxPanel(m_upNotebook, wxID_ANY);
 	wxPanel* m_panel2 = new wxPanel(m_upNotebook, wxID_ANY);
 	m_panel1->SetBackgroundColour(wxColour(255, 255, 255));
-	wxBoxSizer* m_panel1Sizer = new wxBoxSizer(wxVERTICAL);//m_panel1²¼¾Ö
+	wxBoxSizer* m_panel1Sizer = new wxBoxSizer(wxVERTICAL);//m_panel1å¸ƒå±€
 	m_panel1->SetSizer(m_panel1Sizer);
 	m_panel2->SetBackgroundColour(wxColour(255, 255, 255));
-	//Éè¼Æ±Ê¼Ç±¾ÈÝÆ÷
-	m_upNotebook->AddPage(m_panel1, "Éè¼Æ",true);
-	        //×ó²à¹¤¾ßÀ¸
+	//è®¾è®¡ç¬”è®°æœ¬å®¹å™¨
+	m_upNotebook->AddPage(m_panel1, "è®¾è®¡",true);
+	        //å·¦ä¾§å·¥å…·æ 
 	wxBitmap bitmapAdd;
 	bitmapAdd.LoadFile("resource/image/780.png", wxBITMAP_TYPE_PNG);
 	wxImage imageAdd = bitmapAdd.ConvertToImage();
 	bitmapAdd = imageAdd.Scale(20, 20, wxIMAGE_QUALITY_HIGH);
 	bitmapAdd = wxBitmap(bitmapAdd);
 	wxToolBar* left_toolBar = new wxToolBar(m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL);
-	left_toolBar->AddTool(201, wxT("Ìí¼ÓÏßÂ·"), bitmapAdd, wxT("Ìí¼ÓÏßÂ·"));
+	left_toolBar->AddTool(201, wxT("æ·»åŠ çº¿è·¯"), bitmapAdd, wxT("æ·»åŠ çº¿è·¯"));
 	left_toolBar->Realize();
 	m_panel1Sizer->Add(left_toolBar, 0, wxEXPAND | wxALL, 0);
-	        //Ê÷¿Ø¼þ
+	        //æ ‘æŽ§ä»¶
 	TreePanel* treeCtrl =new  TreePanel(m_panel1);
 	m_panel1Sizer->Add(treeCtrl, 1, wxEXPAND | wxALL, 0);
-	m_upNotebook->AddPage(m_panel2, "Ä£Äâ");
+	m_upNotebook->AddPage(m_panel2, "æ¨¡æ‹Ÿ");
 
-	    //ÏÂÃæµÄnotebook
+	    //ä¸‹é¢çš„notebook
 	wxPanel* m_downPanel = new wxPanel(splitter2, wxID_ANY);
-	wxBoxSizer* m_downPanelSizer = new wxBoxSizer(wxVERTICAL);//m_downPanel²¼¾Ö
+	wxBoxSizer* m_downPanelSizer = new wxBoxSizer(wxVERTICAL);//m_downPanelå¸ƒå±€
 	m_downPanel->SetSizer(m_downPanelSizer);
 	wxNotebook* m_downNotebook = new wxNotebook(m_downPanel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxNB_TOP);//
 	m_downPanelSizer->Add(m_downNotebook, 1, wxEXPAND | wxALL, 0);
@@ -126,23 +126,23 @@ cMain::cMain() : wxFrame(nullptr,wxID_ANY,"µçÂ·±à¼­Æ÷",wxPoint(30,30),wxSize(800
 	wxPanel* m_panel4 = new wxPanel(m_downNotebook, wxID_ANY);
 	m_panel3->SetBackgroundColour(wxColour(255, 255, 255));
 	m_panel4->SetBackgroundColour(wxColour(255, 255, 255));
-	m_downNotebook->AddPage(m_panel3, "ÊôÐÔ");
-	m_downNotebook->AddPage(m_panel4, "×´Ì¬");
-	//ÊôÐÔÃæ°å
-	wxBoxSizer* m_panel3Sizer = new wxBoxSizer(wxVERTICAL);//m_panel3²¼¾Ö
+	m_downNotebook->AddPage(m_panel3, "å±žæ€§");
+	m_downNotebook->AddPage(m_panel4, "çŠ¶æ€");
+	//å±žæ€§é¢æ¿
+	wxBoxSizer* m_panel3Sizer = new wxBoxSizer(wxVERTICAL);//m_panel3å¸ƒå±€
 	m_panel3->SetSizer(m_panel3Sizer);
-	    //ÊôÐÔ±í¿Ø¼þ
+	    //å±žæ€§è¡¨æŽ§ä»¶
 
 
 
-	    //·ÅÈÝÆ÷½ø¸îÉÏÏÂÈÝÆ÷
+	    //æ”¾å®¹å™¨è¿›å‰²ä¸Šä¸‹å®¹å™¨
 	splitter2->SplitHorizontally(m_upPanel, m_downPanel, 300);
-	//ÓÒÃæ°å
+	//å³é¢æ¿
 
 	wxPanel* m_rightPanel = new wxPanel(splitter1, wxID_ANY);
-	wxBoxSizer* m_rightPanelSizer = new wxBoxSizer(wxVERTICAL);//m_rightPanel²¼¾Ö
+	wxBoxSizer* m_rightPanelSizer = new wxBoxSizer(wxVERTICAL);//m_rightPanelå¸ƒå±€
 	m_rightPanel->SetSizer(m_rightPanelSizer);
-	//ÓÒ²à¹¤¾ßÀ¸
+	//å³ä¾§å·¥å…·æ 
 	wxBitmap bitmapForText;
 	bitmapForText.LoadFile("resource/image/insertText.png", wxBITMAP_TYPE_PNG);
 	wxImage imageForText = bitmapForText.ConvertToImage();
@@ -162,21 +162,21 @@ cMain::cMain() : wxFrame(nullptr,wxID_ANY,"µçÂ·±à¼­Æ÷",wxPoint(30,30),wxSize(800
 	bitmapForDrawLine = wxBitmap(bitmapForDrawLine);
 
 	wxToolBar* right_toolBar = new wxToolBar(m_rightPanel, wxID_ANY,wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL);
-	right_toolBar->AddTool(ID_idle, wxT("Ñ¡Ôñ"), bitmapForIdle, wxT("Ñ¡Ôñ¹¤¾ß"));
-	right_toolBar->AddTool(ID_drawline, wxT("Á¬Ïß"), bitmapForDrawLine, wxT("Á¬Ïß¹¤¾ß"));
-	right_toolBar->AddTool(ID_drawtext, wxT("Ð´ÎÄ×Ö"), bitmapForText, wxT("Ð´ÎÄ×Ö"));
-	right_toolBar->AddTool(ID_deleteSelected, "É¾³ý", wxArtProvider::GetBitmap(wxART_DELETE, wxART_TOOLBAR),wxT("É¾³ý"));
-	right_toolBar->AddTool(ID_zoomin, "·Å´ó", wxArtProvider::GetBitmap(wxART_PLUS),wxT("·Å´ó"));
-	right_toolBar->AddTool(ID_zoomout, "·ÅÐ¡", wxArtProvider::GetBitmap(wxART_MINUS),wxT("ËõÐ¡"));
+	right_toolBar->AddTool(ID_idle, wxT("é€‰æ‹©"), bitmapForIdle, wxT("é€‰æ‹©å·¥å…·"));
+	right_toolBar->AddTool(ID_drawline, wxT("è¿žçº¿"), bitmapForDrawLine, wxT("è¿žçº¿å·¥å…·"));
+	right_toolBar->AddTool(ID_drawtext, wxT("å†™æ–‡å­—"), bitmapForText, wxT("å†™æ–‡å­—"));
+	right_toolBar->AddTool(ID_deleteSelected, "åˆ é™¤", wxArtProvider::GetBitmap(wxART_DELETE, wxART_TOOLBAR),wxT("åˆ é™¤"));
+	right_toolBar->AddTool(ID_zoomin, "æ”¾å¤§", wxArtProvider::GetBitmap(wxART_PLUS),wxT("æ”¾å¤§"));
+	right_toolBar->AddTool(ID_zoomout, "æ”¾å°", wxArtProvider::GetBitmap(wxART_MINUS),wxT("ç¼©å°"));
 
 	right_toolBar->Realize();
 
 	drawborad = new DrawBoard(m_rightPanel);
-	//·ÅÈëÓÒ²àÃæ°å²¼¾Ö¹ÜÀíÆ÷
+	//æ”¾å…¥å³ä¾§é¢æ¿å¸ƒå±€ç®¡ç†å™¨
 	m_rightPanelSizer->Add(right_toolBar, 0, wxEXPAND | wxALL, 5);
 	m_rightPanelSizer->Add(drawborad, 1, wxEXPAND | wxALL, 5);
 
-	//·ÅÃæ°å½øÈë×óÓÒ·Ö¸îÈÝÆ÷
+	//æ”¾é¢æ¿è¿›å…¥å·¦å³åˆ†å‰²å®¹å™¨
 	splitter1->SplitVertically(m_leftPanel, m_rightPanel, 600);
 
 	Bind(wxEVT_MENU, &cMain::OnSave, this, wxID_SAVE);
@@ -198,15 +198,30 @@ cMain::~cMain() {
 
 void cMain::OnDrawIdle(wxCommandEvent& event) {
 	drawborad->SetCurrentTool(TOOL_IDEL);
+	ResetToolIcons();
+	wxBitmap newBitmapForIdle;
+	newBitmapForIdle.LoadFile("resource/image/selectSelected.png", wxBITMAP_TYPE_PNG);
+	right_toolBar->SetToolNormalBitmap(ID_idle, newBitmapForIdle);  // ä¿®æ”¹æ­£å¸¸çŠ¶æ€çš„å›¾æ ‡
+	right_toolBar->Refresh();
 }
 
 void cMain::OnDrawLine(wxCommandEvent& event) {
 	drawborad->SetCurrentTool(TOOL_WIRE);
-
+	ResetToolIcons();
+	wxBitmap newBitmapForIdle;
+	newBitmapForIdle.LoadFile("resource/image/drawLineSelected.png", wxBITMAP_TYPE_PNG);
+	right_toolBar->SetToolNormalBitmap(ID_drawline, newBitmapForIdle);  // ä¿®æ”¹æ­£å¸¸çŠ¶æ€çš„å›¾æ ‡
+	right_toolBar->Refresh();
 }
 
 void cMain::OnDrawText(wxCommandEvent& event) {
 	drawborad->SetCurrentTool(TOOL_TEXT);
+
+	ResetToolIcons();
+	wxBitmap newBitmapForIdle;
+	newBitmapForIdle.LoadFile("resource/image/insertTextSelected.png", wxBITMAP_TYPE_PNG);
+	right_toolBar->SetToolNormalBitmap(ID_drawtext, newBitmapForIdle);  // ä¿®æ”¹æ­£å¸¸çŠ¶æ€çš„å›¾æ ‡
+	right_toolBar->Refresh();
 }
 
 void cMain::OnSave(wxCommandEvent& event) {
@@ -278,7 +293,7 @@ void cMain::OnZoomIn(wxCommandEvent&)
 		}
 	}
 	drawborad->Refresh();
-	// ÕâÀïÐ´·Å´óÂß¼­
+	// è¿™é‡Œå†™æ”¾å¤§é€»è¾‘
 }
 
 void cMain::OnZoomOut(wxCommandEvent&)
@@ -293,9 +308,33 @@ void cMain::OnZoomOut(wxCommandEvent&)
 		}
 	}
 	drawborad->Refresh();
-	// ÕâÀïÐ´ËõÐ¡Âß¼­
+	// è¿™é‡Œå†™ç¼©å°é€»è¾‘
 }
 
 void cMain::OnDeleteSelected(wxCommandEvent& event) {
 	drawborad->DeleteSelectedComponents();
+}
+
+// é‡ç½®é€‰æ‹©ã€è¿žçº¿ã€å†™æ–‡å­—å·¥å…·ä¸ºé»˜è®¤å›¾æ ‡
+void cMain::ResetToolIcons() {
+	// é‡ç½®â€œé€‰æ‹©å·¥å…·â€ä¸ºé»˜è®¤å›¾æ ‡
+	wxBitmap bitmapForIdle;
+	bitmapForIdle.LoadFile("resource/image/select.png", wxBITMAP_TYPE_PNG);
+	wxImage imageForIdle = bitmapForIdle.ConvertToImage();
+	bitmapForIdle = imageForIdle.Scale(24, 24, wxIMAGE_QUALITY_HIGH);
+	right_toolBar->SetToolNormalBitmap(ID_idle, bitmapForIdle);
+
+	// é‡ç½®â€œè¿žçº¿å·¥å…·â€ä¸ºé»˜è®¤å›¾æ ‡
+	wxBitmap bitmapForDrawLine;
+	bitmapForDrawLine.LoadFile("resource/image/drawLine.png", wxBITMAP_TYPE_PNG);
+	wxImage imageForDrawLine = bitmapForDrawLine.ConvertToImage();
+	bitmapForDrawLine = imageForDrawLine.Scale(24, 24, wxIMAGE_QUALITY_HIGH);
+	right_toolBar->SetToolNormalBitmap(ID_drawline, bitmapForDrawLine);
+
+	// é‡ç½®â€œå†™æ–‡å­—å·¥å…·â€ä¸ºé»˜è®¤å›¾æ ‡
+	wxBitmap bitmapForText;
+	bitmapForText.LoadFile("resource/image/insertText.png", wxBITMAP_TYPE_PNG);
+	wxImage imageForText = bitmapForText.ConvertToImage();
+	bitmapForText = imageForText.Scale(24, 24, wxIMAGE_QUALITY_HIGH);
+	right_toolBar->SetToolNormalBitmap(ID_drawtext, bitmapForText);
 }

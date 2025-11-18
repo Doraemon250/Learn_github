@@ -26,6 +26,7 @@ public:
 	void OnDrawText(wxCommandEvent& event);
 	void OnDrawIdle(wxCommandEvent& event);
 	void OnDrawLine(wxCommandEvent& event);
+	void ResetToolIcons();  // 新增：重置工具按钮为默认图标
 private:
 	void OnZoomIn(wxCommandEvent& evt);
 	void OnZoomOut(wxCommandEvent& evt);

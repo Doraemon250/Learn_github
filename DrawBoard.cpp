@@ -4,9 +4,9 @@
 
 bool TextDropTarget::OnDropText(wxCoord x, wxCoord y, const wxString& text)
 {
-    if (text == "与门")
+    if (text == "脫毛脙脜")
     {
-        m_canvas->AddGate(x, y, ANDGATE, "与门");
+        m_canvas->AddGate(x, y, ANDGATE, "脫毛脙脜");
         return true;
     }
     return false;
@@ -142,7 +142,7 @@ void DrawBoard::OnLeftDown(wxMouseEvent& event) {
     switch (m_currentTool) {
     case TOOL_TEXT: {
         m_wireStartPos = event.GetPosition();
-        TextInputDialog dialog(this, wxID_ANY, "添加标签");
+        TextInputDialog dialog(this, wxID_ANY, "脤铆录脫卤锚脟漏");
 
         if (dialog.ShowModal() == wxID_OK) {
             wxString userInput = dialog.GetText();
