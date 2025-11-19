@@ -19,7 +19,7 @@ TextInputDialog::TextInputDialog(wxWindow* parent, wxWindowID id, const wxString
 	wxBoxSizer* bSizer2;
 	bSizer2 = new wxBoxSizer(wxHORIZONTAL);
 
-	m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("�����ǩ"), wxDefaultPosition, wxDefaultSize, 0);
+	m_staticText1 = new wxStaticText(this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0);
 	m_staticText1->Wrap(-1);
 	bSizer2->Add(m_staticText1, 0, wxALL, 5);
 
@@ -32,7 +32,7 @@ TextInputDialog::TextInputDialog(wxWindow* parent, wxWindowID id, const wxString
 	wxBoxSizer* bSizer4;
 	bSizer4 = new wxBoxSizer(wxHORIZONTAL);
 
-	m_staticText2 = new wxStaticText(this, wxID_ANY, wxT("����Ƕ�"), wxDefaultPosition, wxDefaultSize, 0);
+	m_staticText2 = new wxStaticText(this, wxID_ANY, wxT("MyLabel"), wxDefaultPosition, wxDefaultSize, 0);
 	m_staticText2->Wrap(-1);
 	bSizer4->Add(m_staticText2, 0, wxALL, 5);
 
@@ -45,10 +45,10 @@ TextInputDialog::TextInputDialog(wxWindow* parent, wxWindowID id, const wxString
 	wxBoxSizer* bSizer5;
 	bSizer5 = new wxBoxSizer(wxHORIZONTAL);
 
-	m_button1 = new wxButton(this, wxID_OK, wxT("ȷ��"), wxDefaultPosition, wxDefaultSize, 0);
+	m_button1 = new wxButton(this, wxID_OK, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0);
 	bSizer5->Add(m_button1, 0, wxALL, 5);
 
-	m_button2 = new wxButton(this, wxID_CANCEL, wxT("ȡ��"), wxDefaultPosition, wxDefaultSize, 0);
+	m_button2 = new wxButton(this, wxID_CANCEL, wxT("MyButton"), wxDefaultPosition, wxDefaultSize, 0);
 	bSizer5->Add(m_button2, 0, wxALL, 5);
 
 

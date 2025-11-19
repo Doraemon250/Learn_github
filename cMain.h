@@ -15,7 +15,7 @@ public:
 	wxString m_currentFilePath;
 	DrawBoard* drawborad;
 
-
+	wxToolBar* right_toolBar;
 
 	void OnSave(wxCommandEvent& event);
 	void OnOpen(wxCommandEvent& event);
@@ -26,7 +26,7 @@ public:
 	void OnDrawText(wxCommandEvent& event);
 	void OnDrawIdle(wxCommandEvent& event);
 	void OnDrawLine(wxCommandEvent& event);
-	void ResetToolIcons();  // 鏂板锛氶噸缃伐鍏锋寜閽负榛樿鍥炬爣
+	void ResetToolIcons();  // 新增：重置工具按钮为默认图标
 private:
 	void OnZoomIn(wxCommandEvent& evt);
 	void OnZoomOut(wxCommandEvent& evt);
@@ -34,4 +34,6 @@ private:
 
 	//wxDECLARE_EVENT_TABLE();
 };
+
+
 

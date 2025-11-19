@@ -40,9 +40,9 @@ Port* Component::GetPortAt(wxPoint pt, bool& isInput) {
 void ANDGate::InitializePorts() {
 	m_inputs.clear();
 	m_outputs.clear();
-	m_inputs.push_back({ wxPoint(-40*scale, -10*scale), 0 });
-	m_inputs.push_back({ wxPoint(-40*scale, 10*scale), 1 });
-	m_outputs.push_back({ wxPoint(60*scale, 0), 0 });
+	m_inputs.push_back({ wxPoint(-40, -10), 0 });
+	m_inputs.push_back({ wxPoint(-40, 10), 1 });
+	m_outputs.push_back({ wxPoint(60, 0), 0 });
 }
 
 void ANDGate::drawSelf(wxMemoryDC& memDC) {
@@ -91,10 +91,10 @@ bool ANDGate::Isinside(const wxPoint& point) const
 
 
 void ANDGate::UpdateGeometry() {
-	m_BoundaryPoints[0] = wxPoint(m_center.x - 40 * scale, m_center.y - 20 * scale);//脳贸脡脧
-	m_BoundaryPoints[1] = wxPoint(m_center.x - 40 * scale, m_center.y + 20 * scale);//脳贸脧脗
-	m_BoundaryPoints[2] = wxPoint(m_center.x + 60 * scale, m_center.y - 20 * scale);//脫脪脡脧
-	m_BoundaryPoints[3] = wxPoint(m_center.x + 60 * scale, m_center.y + 20 * scale);//脫脪脧脗
+	m_BoundaryPoints[0] = wxPoint(m_center.x - 40 * scale, m_center.y - 20 * scale);//左上
+	m_BoundaryPoints[1] = wxPoint(m_center.x - 40 * scale, m_center.y + 20 * scale);//左下
+	m_BoundaryPoints[2] = wxPoint(m_center.x + 60 * scale, m_center.y - 20 * scale);//右上
+	m_BoundaryPoints[3] = wxPoint(m_center.x + 60 * scale, m_center.y + 20 * scale);//右下
 }
 
 
